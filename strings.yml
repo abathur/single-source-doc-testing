@@ -1,0 +1,18 @@
+tagline: resolve external command/script references in shell scripts
+synopses:
+  -
+    - optional: true
+      name: options
+    - name: script
+    - "..."
+  -
+    - optional: true
+      name: options
+    - "<"
+    - name: script
+description:
+  - |
+    {{ me() -}}
+    replaces bare references (subject to a PATH search at runtime) to external commands and scripts with absolute paths.
+  - "This small super-power helps ensure script dependencies are declared, {{ me() }}present, and don't unexpectedly shift when the PATH changes."
+  - "{{ me() -}} is developed to enable the Nix package manager to package and integrate Shell projects, but its features are not Nix-specific and inevitably have other applications. {{ me() }}"

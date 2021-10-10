@@ -1,0 +1,12 @@
+.Dd {{ now() }}
+.Dt RESHOLVE 1
+.Os
+.Sh NAME
+.Nm resholve
+.Nd {{ tagline }}
+.Sh SYNOPSIS
+{% for form in synopses -%}{{ synopsis(form) }}{% endfor %}
+.Sh DESCRIPTION
+{%- for p in description -%}{%- if loop.first %}{% else %}
+.Pp{% endif %}
+{{ p }}{%- endfor %}

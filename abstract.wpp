@@ -1,0 +1,20 @@
+let impl/rest(s x) s .. x .. pop impl/rest(s *)
+let impl/rest(s) ""
+
+let impl/first(x) x
+let impl/first() ""
+
+let join(s)
+	pop impl/first(*) .. pop impl/rest(s *)
+
+let NotImplemented(name){
+	error "NotImplemented: " .. name
+	""
+}
+let section() NotImplemented("section")
+let paragraph(text) NotImplemented("paragraph")
+let synopsis/arg/optional(name) NotImplemented("synopsis/arg/optional")
+let synopsis/arg/required(name) NotImplemented("synopsis/arg/required")
+let synopsis/arg/extra() NotImplemented("synopsis/arg/extra")
+let synopsis/arg/furniture(name) NotImplemented("synopsis/arg/furniture")
+let synopsis() NotImplemented("synopsis")

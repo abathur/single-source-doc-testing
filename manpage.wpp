@@ -1,0 +1,43 @@
+let me "\n.Nm\n"
+let today run "date +'.Dd %B %d, %Y'"
+use "generic.wpp"
+use "mdoc.wpp"
+
+today .. r#"
+.Dt RESHOLVE 1
+.Os
+.Sh NAME
+.Nm resholve
+.Nd "# .. tagline
+
+
+#[
+	something borrowed (from wotpp/examples/rainbow.wpp)
+	Join arguments together with passed delimiter
+]
+
+let section(name){
+	".Sh " .. name .. "\n" .. join("\n.Pp\n")
+}
+let paragraph(text){
+	match text[0] {
+		"\n" -> text[1:]
+		* -> text
+	}
+}
+let description(){
+	section(
+		"DESCRIPTION"
+		description:0()
+		description:1()
+		description:2()
+	)
+}
+
+synopses(
+	synopsis:0()
+	synopsis:1()
+)
+description()
+
+

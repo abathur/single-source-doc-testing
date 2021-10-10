@@ -1,0 +1,29 @@
+let me "resholve "
+use "generic.wpp"
+
+let synopsis(){
+	me .. join(" ")
+}
+let paragraph(text){
+	match text[0] {
+		"\n" -> text[1:]
+		* -> text
+	}
+}
+
+r#""""
+This is a hopefully-temporary placeholder to help inch down
+3 separate tracks:
+- single-sourcing resholve's ~documentation
+- automating parts of resholve's source and documentation to
+  pull from the single-source above
+- modularizing resholve's codebase
+
+A few phases:
+1. collect strings here and swap their use sites
+2. replace this file with an output generated from strings.py.in
+    - I already have all of the pieces for this, but I need to figure out how the active component involving j2cli works (the makefile is outside of a nix build, and I don't have j2cli installed systemwide; I either need to fold this in a nix build, or provide the command with nix-run, or use a shebang, or something...)
+3. idk?
+"""
+description = ""# .. description:0() .. r#" This is a terse reminder of flag names; see 'man resholve' for usage."
+synopsis = ""# .. synopsis:0() .. '"'

@@ -1,0 +1,48 @@
+use "abstract.wpp"
+
+#[
+	heuristic:
+  no output-idiomatic defs here, but ~universal
+  (plaintext) defs are OK
+  TODO: I'm not actually sure this is a good idea;
+  consider extracting these to a ~text format
+]
+
+let tagline "resolve external command/script references in shell scripts"
+
+let synopsis/arg/optional(name) "[" .. name .. "]"
+let synopsis/arg/required(name) name
+let synopsis/arg/furniture(name) name
+let synopsis/arg/extra() "..."
+
+let synopsis:0() synopsis(
+	synopsis/arg/optional("options")
+	synopsis/arg/required("script")
+	synopsis/arg/extra()
+)
+let synopsis:1() synopsis(
+	synopsis/arg/optional("options")
+	synopsis/arg/furniture("<")
+	synopsis/arg/required("script")
+)
+
+let description:0() paragraph(
+	me .. p#"
+	replaces bare references
+	(subject to a PATH search at runtime)
+	to external commands and scripts
+	with absolute paths.
+	"#
+)
+
+let description:1() paragraph(
+	p#"This small super-power
+	helps ensure script dependencies
+	are declared, "# .. me .. p#" present,
+	and don't unexpectedly shift when the PATH changes.
+	"#
+)
+
+let description:2() paragraph(
+	me .. p#"is developed to enable the Nix package manager to package and integrate Shell projects, but its features are not Nix-specific and inevitably have other applications. "# .. me
+)

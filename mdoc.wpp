@@ -1,0 +1,23 @@
+let synopsis/arg/optional(name) ".Op Ar " .. name .. "\n"
+let synopsis/arg/required(name) ".Ar " .. name .. "\n"
+let synopsis/arg/furniture(name) ".No " .. name .. "\n"
+let synopsis/arg/extra() synopsis/arg/furniture("...")
+
+let synopsis(){
+	".Nm\n" .. join("")
+}
+
+let synopses(){
+	"\n.Sh SYNOPSIS\n" .. join("")
+}
+
+let section(name){
+	"\n.Sh " .. name .. "\n" .. join("\n.Pp\n")
+}
+
+let paragraph(text){
+	match text[0] {
+		"\n" -> text[1:]
+		* -> text
+	}
+}

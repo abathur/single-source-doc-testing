@@ -1,0 +1,44 @@
+let me "resholve "
+use "generic.wpp"
+
+let section(){
+	"\n" .. join("\n.Pp\n")
+}
+let paragraph(text){
+	match text[0] {
+		"\n" -> text[1:]
+		* -> text
+	}
+}
+let description(){
+	section(
+		description:0()
+
+		#[
+		paragraph(
+			p#"This small super-power
+			helps ensure script dependencies
+			are declared, "# .. me .. p#" present,
+			and don't unexpectely shift when the PATH changes.
+			"#
+		)
+
+		paragraph(
+			me .. p#"is developed to enable the Nix package manager to package and integrate Shell projects, but its features are not Nix-specific and inevitably have other applications."#
+		)
+		]
+	)
+}
+
+
+r#"
+# Using resholve's Nix API
+"#
+.. description() .. r#"
+
+<!-- generated from resholve's repo; best to suggest edits there -->
+
+This will hopefully make its way into the Nixpkgs manual soon, but
+until then I'll outline how to use the `resholvePackage`, `resholveScript`,
+and `resholveScriptBin` functions.
+"#

@@ -1,0 +1,48 @@
+* {
+	/* TODO: probably "line" default for everyone in a roff format? */
+	display: line;
+}
+*::before, *::after {
+	display: word;
+}
+tagline::before {
+	content: ".Nd";
+}
+today {
+	/* TODO: make this dynamic via the CSS or the wwst */
+	content: ".Dd October 31, 2021";
+}
+description {
+	/*display: block;*/
+}
+description::before {
+	content: ".Sh DESCRIPTION";
+	display: line;
+}
+description > para:not(:first-child)::before {
+	content: ".Pp";
+	display: line;
+}
+me {
+	content: ".Nm";
+}
+synopses {
+	/*display: block;*/
+}
+synopses::before {
+	content: ".Sh SYNOPSIS";
+	display: line;
+}
+synopsis::before {
+	content: ".Nm";
+	display: line;
+}
+argument::before {
+	content: ".Ar ";
+}
+argument[optional=true]::before {
+	content: ".Op Ar ";
+}
+furniture::before {
+	content: ".No ";
+}

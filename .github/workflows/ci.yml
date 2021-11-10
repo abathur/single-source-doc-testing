@@ -21,17 +21,24 @@ jobs:
       run: nix-build --out-link wotpp wotpp.nix
     - name: build j2cli version
       run: nix-build --out-link j2cli j2cli.nix
+    - name: build wordswurst version
+      run: nix-build --out-link wordswurst wordswurst.nix
     - name: Move results to artifacts
       run: |
-        mkdir -p artifacts/wotpp artifacts/j2cli
+        mkdir -p artifacts/wotpp artifacts/j2cli artifacts/wordswurst
         cp wotpp/* artifacts/wotpp/
         cp j2cli/* artifacts/j2cli/
+        cp wordswurst/* artifacts/wordswurst/
     - name: Generate diffs
+      # TODO: diff wordswurst once it works
       run: |
         for doc in manpage.1 manpage.1.txt markdown.md strings.py; do
-          diff -u j2cli/$doc wotpp/$doc > artifacts/$doc.diff || true
+          diff -u j2cli/$doc wotpp/$doc > artifacts/$doc.j2-wpp.diff || true
+          diff -u wotpp/$doc wordswurst/$doc > artifacts/$doc.wpp-wwst.diff || true
           echo "==== diff -u j2cli/$doc wotpp/$doc ===="
-          cat artifacts/$doc.diff
+          cat artifacts/$doc.j2-wpp.diff
+          echo "==== diff -u wotpp/$doc wordswurst/$doc ===="
+          cat artifacts/$doc.wpp-wwst.diff
         done
     - name: Upload artifacts
       uses: actions/upload-artifact@v2

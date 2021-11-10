@@ -1,0 +1,9 @@
+#compose content.wwst manpage.css
+  #today
+  .Dt RESHOLVE 1
+  .Os
+  .Sh NAME
+  .Nm resholve
+  %select{tagline}
+  %select{synopses}
+  %select{description}

@@ -1,0 +1,21 @@
+* {
+	display: block;
+}
+me, argument {
+	display: word;
+}
+description > para {
+	margin: 1;
+}
+me {
+	content: "resholve";
+}
+synopsis::before {
+	content: "resholve ";
+}
+argument[optional=true]::before {
+	content: "[";
+}
+argument[optional=true]::after {
+	content: "]";
+}

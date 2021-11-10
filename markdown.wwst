@@ -1,0 +1,9 @@
+#compose content.wwst markdown.css
+  # Using resholve's Nix API
+  %select{description}
+
+  <!-- generated from resholve's repo; best to suggest edits there -->
+
+  This will hopefully make its way into the Nixpkgs manual soon, but
+  until then I'll outline how to use the `resholvePackage`, `resholveScript`,
+  and `resholveScriptBin` functions.

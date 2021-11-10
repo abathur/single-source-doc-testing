@@ -1,0 +1,9 @@
+#description
+  #para %me{} replaces bare references (subject to a PATH search at runtime) to external commands and scripts with absolute paths.
+  #para This small super-power helps ensure script dependencies are declared, present, and don't unexpectedly shift when the PATH changes.
+
+  #para %me{} is developed to enable the Nix package manager to package and integrate Shell projects, but its features are not Nix-specific and inevitably have other applications.
+#tagline resolve external command/script references in shell scripts
+#synopses
+  #synopsis %argument[optional=true]{options} %argument{script} %furniture{...}
+  #synopsis %argument[optional=true]{options} %furniture{<} %argument{script}
